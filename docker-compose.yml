@@ -1,0 +1,16 @@
+services:
+  si-voting-be:
+    image: si-voting-be:latest
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_OPTS=${JAVA_OPTS}
+    networks:
+      - si-voting-network
+
+networks:
+  si-voting-network:
+    driver: bridge
